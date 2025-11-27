@@ -1,0 +1,11 @@
+{
+  "name": "rep-plus-extension",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Chrome/Firefox DevTools Repeater-like extension",
+  "scripts": {
+    "build:firefox": "node ./scripts/build-firefox.mjs"
+  },
+  "devDependencies": {},
+  "license": "MIT"
+}

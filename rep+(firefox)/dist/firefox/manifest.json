@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "rep+",
+  "version": "1.0",
+  "description": "A lightweight Repeater-like DevTools panel with multi-tab capture.",
+  "author": "Bour Abdelhadi with help of LLM",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "webRequest"
+  ],
+  "optional_permissions": [
+    "webRequestBlocking"
+  ],
+  "host_permissions": [],
+  "optional_host_permissions": [
+    "<all_urls>"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "devtools_page": "devtools.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "repplus@example.com",
+      "strict_min_version": "109.0"
+    }
+  }
+}
