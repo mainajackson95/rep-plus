@@ -1,6 +1,16 @@
+Here's the optimized description for Firefox installation:
+
+# rep+ (Firefox)
+
+> Acknowledgements: This Firefox port builds upon the excellent Chrome DevTools extension rep by bscript: https://github.com/bscript/rep
+
+rep+ is a lightweight Firefox DevTools extension inspired by Burp Suite's Repeater, now supercharged with AI. I often need to poke at a few requests without spinning up the full Burp stack, so I built this extension to keep my workflow fast, focused, and intelligent with integrated LLM support.
+
+[![Watch Demo](https://img.shields.io/badge/Demo-Video-red?style=for-the-badge&logo=youtube)](https://video.twimg.com/amplify_video/1992382891196571648/pl/zE5-oOXgVua1ZBQn.m3u8?tag=14)
+
 <p align="center">
-  <!-- Chrome Supported -->
-  <img src="https://img.shields.io/badge/Chrome-Supported-4285F4?logo=googlechrome&logoColor=white" alt="Chrome Supported">
+  <!-- Firefox Supported -->
+  <img src="https://img.shields.io/badge/Firefox-Supported-FF7139?logo=firefox&logoColor=white" alt="Firefox Supported">
 
   <!-- AppSec Tool -->
   <img src="https://img.shields.io/badge/AppSec-Tool-blueviolet" alt="AppSec Tool">
@@ -24,97 +34,106 @@
   </a>
 </p>
 
-# rep+ (Firefox)
+## Features (Same Powerful Toolkit)
 
-> Acknowledgements: This Firefox port builds upon the excellent Chrome DevTools extension rep by bscript: https://github.com/bscript/rep
-
-rep+ is a lightweight Chrome DevTools extension inspired by Burp Suite's Repeater, now supercharged with AI. I often need to poke at a few requests without spinning up the full Burp stack, so I built this extension to keep my workflow fast, focused, and intelligent with integrated LLM support.
-
-[![Watch Demo](https://img.shields.io/badge/Demo-Video-red?style=for-the-badge&logo=youtube)](https://video.twimg.com/amplify_video/1992382891196571648/pl/zE5-oOXgVua1ZBQn.m3u8?tag=14)
-
-## What it does
-
-- **No Proxy Setup**: Works directly in Chrome. No need to configure system proxies or install CA certificates like in Burp Suite.
+- **No Proxy Setup**: Works directly in Firefox. No need to configure system proxies or install CA certificates like in Burp Suite.
 - **Capture & Replay**: Captures every HTTP request you trigger while testing. Replay any request and freely manipulate the raw method, path, headers, or body to probe endpoints.
 - **Multi-tab Capture**: Captures network requests from **all open tabs**, not just the inspected one.
-  - **Global Visibility**: Monitor traffic across your entire browser session.
-  - **Visual Indicators**: Requests from other tabs are marked with a globe icon 🌍 for easy distinction.
-  - **Smart Filtering**: Automatically deduplicates requests to keep your workspace clean.
-  - **Privacy First (Optional Permissions)**: Broad permissions (`webRequest`, `<all_urls>`) are **NOT** granted by default. They are requested at **runtime** only when you explicitly click the globe icon to enable this feature. This ensures rep+ remains lightweight and respects your privacy until you need the extra power.
-- **Hierarchical Request Grouping**: Intelligent organization of captured requests for better visibility.
-  - **Page-Based Grouping**: Requests are grouped by the page that initiated them (📄 icon).
-  - **Third-Party Detection**: Automatically identifies and nests third-party domains (CDNs, APIs, analytics) under the parent page (🌐 icon).
-  - **Smart Ordering**: First-party requests appear at the top, followed by third-party domain groups.
-  - **Collapsible Tree**: All groups start collapsed by default to keep the view clean. Use the toggle button to expand/collapse all at once.
-  - **Context-Aware**: Understand which resources belong to which page, making it easier to analyze complex web applications.
-  - **Group Starring**: Star an entire Page Group (📄) or Domain Group (🌐) to track it.
-    - **Focused Tracking**: Starring a Page Group only stars first-party requests (same domain), ignoring third-party noise.
-    - **Auto-Star**: New requests belonging to a starred group are automatically starred as they arrive.
-- **Filters & Regex**: Powerful search across URL, domain, headers, and body. Toggle **Regex Mode** for advanced pattern matching (e.g., finding specific tokens or IDs).
-- **Converters**: Right-click context menu to instantly encode/decode data:
-  - Base64
-  - URL Encode/Decode
-  - JWT Decode (view payload instantly)
-  - Hex / UTF-8
-- **Screenshots**: Built-in screenshot tool to capture the request/response pair for bug reports.
-- **History & Navigation**: Undo/redo support for edits and history navigation for selected requests.
-- **Starring**: Pin important requests to keep them at the top of your list.
-  - **Individual Requests**: Star specific requests manually.
-  - **Group Starring**: Star entire groups to automatically track all current and future requests from that page or domain.
-- **Clear Workspace**: Instantly clear all captured requests with a single click to start a fresh session.
-- **Export & Import**: Export requests as JSON to share findings with teammates or import them later. Perfect for rep+ ↔ rep+ workflows.
-- **Bulk Replay**: Burp Suite Intruder-style attacks with four attack modes:
-  - **Sniper**: Tests each position independently with its own payloads
-  - **Battering Ram**: All positions receive the same payload
-  - **Pitchfork**: Zips payloads across positions (index-wise)
-  - **Cluster Bomb**: Tests all combinations (Cartesian product)
-  
-  Mark multiple parameters with `§`, choose your attack type, configure payloads (List or Numbers) for each position, and inspect detailed results for every attempt. Includes pause/resume functionality for long-running attacks.
-  - **Response Diff**: Git-style diff view to highlight changes between the baseline response and each attack result. Toggle "Diff View" to see additions (green) and deletions (red) at a glance.
-- **Unified Extractor**: A powerful tool to analyze JavaScript files, combining two key features:
-  - **Secret Scanner**: Automatically scans captured JS files for hardcoded secrets (API keys, tokens, private keys).
-    - **Smart Detection**: Uses entropy analysis and advanced filtering to minimize false positives.
-    - **Confidence Scores**: Flags findings as High, Medium, or Low confidence.
-  - **Endpoint Extractor**: Extracts API endpoints, URLs, and paths from JS files.
-    - **Smart Extraction**: Finds full URLs, relative paths, and GraphQL endpoints.
-    - **Method Detection**: Guesses HTTP methods (GET, POST, etc.) from context.
-    - **One-Click Copy**: Instantly copy relative paths as full URLs (reconstructs the base URL automatically).
-- **Theme Support**: Auto-detects system theme (Light/Dark) and includes a quick toggle button ☀️/🌙 in the UI.
-- **AI Capabilities**: Integrated with Anthropic's Claude to help you understand requests and responses.
-  - **Explain Request**: Click the ✨ button to get a detailed explanation of the current request.
-  - **Suggest Attack Vectors**: Click the ▼ menu and select **Suggest Attack Vectors** to get a prioritized security checklist of potential vulnerabilities (IDOR, SQLi, etc.) tailored to the current request.
-  - **Context Menu**: Highlight any text (header, parameter, error), right-click, and select **"Explain with AI"** for a targeted explanation.
-  - **Streaming Responses**: Explanations appear in real-time.
-  - **Configuration**: Configure your Anthropic API Key and Model (Claude 3.5 Sonnet, Opus, Haiku) in the Settings 🤖 menu.
+- **Hierarchical Request Grouping**: Intelligent organization of captured requests with page-based and third-party domain grouping.
+- **Filters & Regex**: Powerful search across URL, domain, headers, and body with Regex Mode.
+- **Converters**: Right-click context menu for instant encoding/decoding (Base64, URL, JWT, Hex, UTF-8).
+- **Screenshots**: Built-in screenshot tool for bug reports.
+- **History & Navigation**: Undo/redo support and history navigation.
+- **Starring**: Pin important requests or entire groups.
+- **Bulk Replay**: Burp Suite Intruder-style attacks with four attack modes (Sniper, Battering Ram, Pitchfork, Cluster Bomb).
+- **Unified Extractor**: Secret Scanner and Endpoint Extractor for JavaScript analysis.
+- **Theme Support**: Auto-detects system theme with manual toggle.
+- **AI Capabilities**: Integrated with Anthropic's Claude for request explanations, attack vector suggestions, and targeted text analysis.
 
-## ⚠️ Limitations
+## ⚠️ Firefox-Specific Notes
 
-rep+ runs inside Chrome DevTools, so:
+rep+ runs inside Firefox DevTools, so:
 
-- No raw HTTP/1 or malformed requests (fetch() limitation)
-- Some headers can’t be overridden (browser sandbox)
-- No raw TCP sockets (no smuggling/pipelining tests)
-- DevTools panel constraints limit certain UI setups
+- Some headers may behave differently than in Chrome due to Firefox's security model
+- Performance characteristics may vary slightly
+- The extension uses Firefox's `devtools.panels` and `webRequest` APIs which are well-supported
+- No raw TCP sockets (same limitation as Chrome)
+- DevTools panel constraints are similar to Chrome
 
-rep+ is best for quick testing, replaying, and experimenting — not full low-level HTTP work.
+## Firefox Installation
 
-## Installation
+### Method 1: Temporary Load (Development)
 
-1. **Clone the repository**:
+1. **Download the Extension**:
+   - Clone the repository or download the latest release:
    ```bash
    git clone https://github.com/bscript/rep.git
    ```
-2. **Open Chrome Extensions**:
-   - Navigate to `chrome://extensions/` in your browser.
-   - Enable **Developer mode** (toggle in the top right corner).
-3. **Load the Extension**:
-   - Click **Load unpacked**.
-   - Select the `rep` folder you just cloned.
-4. **Open DevTools**:
-   - Press `F12` or right-click -> Inspect.
-   - Look for the **rep+** tab (you might need to click the `>>` overflow menu).
 
-This combo makes rep+ handy for bug bounty hunters and vulnerability researchers who want Burp-like iteration without the heavyweight UI. Install the extension, open DevTools, head to the rep+ panel, and start hacking. 😎
+2. **Open Firefox Debugging**:
+   - Type `about:debugging` in the Firefox address bar
+   - Click **"This Firefox"** in the left sidebar
+
+3. **Load the Extension**:
+   - Click **"Load Temporary Add-on..."**
+   - Navigate to the `rep` folder and select any file (or the `manifest.json`)
+   - The extension will now appear in your DevTools
+
+### Method 2: Install from Release (Recommended)
+
+1. **Download the Firefox Extension**:
+   - Get the latest `.xpi` file from the [Releases page](https://github.com/bscript/rep/releases)
+
+2. **Install in Firefox**:
+   - Open Firefox and go to `about:addons`
+   - Click the gear icon ⚙️ → **"Install Add-on From File..."**
+   - Select the downloaded `.xpi` file
+   - Confirm the installation when prompted
+
+3. **Open DevTools**:
+   - Press `F12` or right-click → **Inspect Element**
+   - Look for the **rep+** tab in DevTools (you might need to click the `»` overflow menu)
+
+### Method 3: Development Build
+
+For contributors or those wanting the latest features:
+
+1. **Clone and Build**:
+   ```bash
+   git clone https://github.com/bscript/rep.git
+   cd rep
+   npm install
+   npm run build:firefox
+   ```
+
+2. **Load the Built Extension**:
+   - Follow **Method 1** above, but load from the `dist-firefox/` directory
+
+## Firefox Permissions
+
+When installing, Firefox will request these permissions:
+- **Access your data for all websites**: Required for capturing requests across tabs
+- **Access browser tabs**: Needed for multi-tab capture functionality
+- **Native messaging**: For potential future integration with external tools
+
+**Privacy Note**: These permissions are only used for the extension's core functionality. No data is sent to external servers unless you explicitly use the AI features with your own API key.
+
+## Troubleshooting Firefox Installation
+
+If the extension doesn't appear in DevTools:
+
+1. **Restart Firefox**: Sometimes required after first installation
+2. **Check Extension Status**: Go to `about:addons` and ensure rep+ is enabled
+3. **Verify DevTools**: Make sure DevTools is open (F12) and check the toolbar for the rep+ icon
+4. **Clear Cache**: If issues persist, try clearing Firefox cache and restarting
+5. **Check Console**: Open Browser Console (Ctrl+Shift+J) for any error messages
+
+## Known Firefox Differences
+
+- **Performance**: Firefox may handle large numbers of requests slightly differently
+- **UI Rendering**: Minor visual differences due to browser rendering engines
+- **API Support**: Full feature parity with Chrome, but some underlying APIs differ
+- **Updates**: Firefox extensions update automatically through Mozilla Add-ons
 
 ## Star History
 
@@ -123,68 +142,6 @@ This combo makes rep+ handy for bug bounty hunters and vulnerability researchers
 ## Found a Bug or Issue?
 
 If you encounter any bugs, unexpected behavior, or have feature requests, please help me improve **rep+** by [opening an issue here](https://github.com/bscript/rep/issues).  
-I’ll do my best to address it as quickly as possible! 🙏
-
-## ❤️ Support the Project
-
-I maintain **rep+** alone, in my free time.  
-Sponsorship helps me keep improving the extension, adding new features, and responding to issues quickly.
-
-If **rep+ saved you time** during testing, development, or bug bounty work, please consider supporting the project.  
-**Every dollar helps. ❤️**
-
-<h3 align="center">Maintained by</h3>
-
-<p align="center">
-  <a href="https://github.com/bscript">
-    <img src="https://avatars.githubusercontent.com/u/43368124?v=4&s=60" width="60" style="border-radius:50%;" alt="Maintainer"/>
-  </a>
-</p>
+I'll do my best to address it as quickly as possible! 🙏
 
 ---
-
-<h3 align="center">Sponsors</h3>
-<p align="center">
-  <a href="https://github.com/projectdiscovery">
-    <img src="https://avatars.githubusercontent.com/u/50994705?s=60" width="60" style="border-radius:50%;" alt="Sponsor"/>
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://github.com/Snownin9">
-    <img src="https://avatars.githubusercontent.com/u/218675317?s=60" width="60" style="border-radius:50%;" alt="Sponsor"/>
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://github.com/exxoticx">
-    <img src="https://avatars.githubusercontent.com/u/50809037?s=60" width="60" style="border-radius:50%;" alt="Sponsor"/>
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://github.com/eduquintanilha">
-    <img src="https://avatars.githubusercontent.com/u/14018253?s=60" width="60" style="border-radius:50%;" alt="Sponsor"/>
-  </a>
-  &nbsp;&nbsp;
-   <a href="https://github.com/Snownull">
-    <img src="https://avatars.githubusercontent.com/u/190537179?s=60" width="60" style="border-radius:50%;" alt="Sponsor"/>
-  </a>
-   &nbsp;&nbsp;
-   <a href="https://github.com/assem-ch">
-    <img src="https://avatars.githubusercontent.com/u/315228?s=60" width="60" style="border-radius:50%;" alt="Sponsor"/>
-  </a>
-   &nbsp;&nbsp;
-   <a href="https://github.com/MrTurvey">
-    <img src="https://avatars.githubusercontent.com/u/5578593?s=60" width="60" style="border-radius:50%;" alt="Sponsor"/>
-  </a>
-   &nbsp;&nbsp;
-   <a href="https://github.com/greenat92">
-    <img src="https://avatars.githubusercontent.com/u/8342706?s=60" width="60" style="border-radius:50%;" alt="Sponsor"/>
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/sponsors/bscript">
-    <img src="https://img.shields.io/badge/Become%20a%20Sponsor-%F0%9F%92%96-ea4aaa?style=for-the-badge" alt="Become a Sponsor"/>
-  </a>
-  <a href="https://github.com/user-attachments/assets/8e6933b5-8579-480b-99cf-161a392b4153">
-    <img src="https://img.shields.io/badge/Bitcoin%20Sponsor-₿-f7931a?style=for-the-badge&logo=bitcoin&logoColor=white" alt="Bitcoin Sponsor"/>
-  </a>
-</p>
-
-# rep-plus
