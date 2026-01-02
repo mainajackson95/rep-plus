@@ -1,5 +1,3 @@
-Here's the optimized description for Firefox installation:
-
 # rep+ (Firefox)
 
 > Acknowledgements: This Firefox port builds upon the excellent Chrome DevTools extension rep by bscript: https://github.com/bscript/rep
